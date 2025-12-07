@@ -314,6 +314,7 @@ jobs:
         working-directory: /builder
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
+          echo -e "$(nproc) thread compile"
           # Set up compilation source code
           if [[ "${{ inputs.source_branch }}" =~ ^openwrt ]]; then
               REPO_URL="https://github.com/openwrt/openwrt"
